@@ -11,6 +11,8 @@ import helpers from "./lib/TemplateHelpers.js";
 
 const app = express(); // create an instance of express
 app.use(express.static("public")); // serve static files from the public folder
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // ---------------------- EJS configuration ----------------------
 // EJS is a templating engine that allows you to embed JavaScript in your HTML.
@@ -20,6 +22,7 @@ app.use(expressLayouts); // use express-ejs-layouts to support layouts
 app.set("view engine", "ejs"); // use EJS as the view engine
 app.set("layout", "layouts/main"); // default layout file
 app.set("views", VIEWS_PATH); // location of the ejs files
+
 Object.assign(app.locals, helpers); // make the helpers available to all views
 
 // ---------------------- API routes ----------------------
