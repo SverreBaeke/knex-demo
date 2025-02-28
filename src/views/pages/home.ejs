@@ -1,16 +1,24 @@
 <main class="home">
-  <h1><%= title %></h1>
+  <h1>
+    <%= title %>
+  </h1>
   <article class="content">
     <%- content %>
   </article>
   <article class="user">
-    <h2>About <%= userData.firstname %> <%= userData.lastname %></h2>
-    <p><%= userData.bio %></p>
+    <h2>About <%= userData.firstname %>
+        <%= JSON.stringify(userData) %>
+    </h2>
+    <p>
+      <%= userData.bio %>
+    </p>
     <h3>Interests</h3>
     <ul>
       <% userData.interests?.forEach(function(interest) { %>
-        <li><%= interest.name %></li>
-      <% }); %>
+        <li>
+          <%= interest.name %>
+        </li>
+        <% }); %>
     </ul>
   </article>
 </main>
